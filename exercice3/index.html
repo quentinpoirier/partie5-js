@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>ex3 part5 js</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="h3">Exercice 3</div>
+        <div>Créer un formulaire contenant un champ nom, un champ mail et un champ age.
+        </div>
+        <div>Si les champs ne correspondent pas à une regex, afficher un message d'erreur en rouge sous le champs dès
+            que l'on entre une valeur.</div>
+        <form class="needs-validation mt-2" novalidate>
+            <div class="form-row">
+                <div class="col-md-4 mb-3">
+                    <label for="name">name</label>
+                    <input type="text" class="form-control" id="name" onkeyup="validName()" placeholder="ex: Jean">
+                    <span id="errorName"></span>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label for="mail">mail</label>
+                    <input type="email" class="form-control" id="mail" onkeyup="validMail()"
+                        placeholder="ex: john.doe@gmail.com">
+                    <span id="errorMail"></span>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label for="age">age</label>
+                    <input type="text" class="form-control" id="age" onkeyup="validAge()" placeholder="ex: 35">
+                    <span id="errorAge"></span>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script>
+        function validName() {
+            let idName = document.getElementById('name');
+            let regexName = /^[a-zA-Zéèàùçêëï\-]+$/;
+
+            if (regexName.test(idName.value)) {
+                console.log('nom valide');
+                idName.style.border = '2px solid green';
+                document.getElementById('errorName').innerHTML = '';
+
+            } else {
+                console.log('nom invalide');
+                idName.style.border = '2px solid red';
+                document.getElementById('errorName').innerHTML = 'erreur';
+
+            }
+        }
+
+        function validMail() {
+            let idMail = document.getElementById("mail");
+            let regexMail = /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/;
+
+            if (regexMail.test(idMail.value)) {
+                console.log('mail valide');
+                idMail.style.border = '2px solid green';
+                document.getElementById('errorMail').innerHTML = '';
+
+            } else {
+                console.log('mail invalide');
+                idMail.style.border = '2px solid red';
+                document.getElementById('errorMail').innerHTML = 'erreur';
+
+            }
+        }
+
+        function validAge() {
+            let idAge = document.getElementById("age");
+            let regexAge = /^[1-9][0-9]?$/;
+
+
+            if (regexAge.test(idAge.value)) {
+                console.log('age valide');
+                idAge.style.border = '2px solid green';
+                document.getElementById('errorAge').innerHTML = '';
+
+            } else {
+                console.log('age invalide');
+                idAge.style.border = '2px solid red';
+                document.getElementById('errorAge').innerHTML = 'erreur';
+            }
+        }
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>
