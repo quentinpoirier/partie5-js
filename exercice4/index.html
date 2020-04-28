@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex4 part 5 js</title>
+</head>
+
+<body>
+    <div>
+        <h1>Exercice 4</h1>
+        <p>Créer un fichier html et y ajouter une image. Au clic sur l'image changer sa source, au survol, l'agrandir.
+        </p>
+        <img src="img/gears.jpg" id="gears" title="engrenages" alt="image d'engrenages">
+    </div>
+
+    <script>
+        let idGears = document.getElementById('gears');
+
+        idGears.addEventListener('click', changeImg);
+        idGears.addEventListener('mouseover', zoomImg);
+        idGears.addEventListener('mouseout', zoomOutImg);
+
+        function changeImg() {
+            if (idGears.src.match(gears)) {
+                idGears.src = 'img/tools.jpg';
+            } else {
+                idGears.src = 'img/gears.jpg';
+            }
+        }
+
+        function zoomImg() {
+            idGears.style.width = '50em';
+            idGears.style.height = '50em';
+        }
+
+        function zoomOutImg() {
+            idGears.style.width = '';
+            idGears.style.height = '';
+        }
+
+       
+    </script>
+</body>
+
+</html>

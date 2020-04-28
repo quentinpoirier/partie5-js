@@ -41,22 +41,23 @@
         function validName() {
             let idName = document.getElementById('name');
             let regexName = /^[a-zA-Zéèàùçêëï\-]+$/;
+            let errorName = document.getElementById('errorName');
 
             if (regexName.test(idName.value)) {
                 console.log('nom valide');
                 idName.style.border = '2px solid green';
-                document.getElementById('errorName').innerHTML = '';
+                errorName.textContent = '';
 
             } else {
                 console.log('nom invalide');
                 idName.style.border = '2px solid red';
-                document.getElementById('errorName').innerHTML = 'erreur';
+                errorName.textContent = 'erreur';
 
             }
         }
 
         function validMail() {
-            let idMail = document.getElementById("mail");
+            let idMail = document.getElementById('mail');
             let regexMail = /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/;
 
             if (regexMail.test(idMail.value)) {
@@ -73,7 +74,7 @@
         }
 
         function validAge() {
-            let idAge = document.getElementById("age");
+            let idAge = document.getElementById('age');
             let regexAge = /^[1-9][0-9]?$/;
 
 
@@ -89,7 +90,6 @@
             }
         }
     </script>
-
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
     </script>
